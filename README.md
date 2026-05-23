@@ -17,4 +17,12 @@ ALL stuff
 
 -- Assinment Operaters 
 
--- 
+-- Functions 
+-- Immediately Invoked Function Expression (IIFE) Runs immediately.
+-- Callback Function
+-- Arrow Functions
+-- Normal Functions
+
+ -- Asynk and await with moke APIS 
+
+ 
