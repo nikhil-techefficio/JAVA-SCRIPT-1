@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript Variables</h1>
+
+<p>Values in JavaScript are stored in variables.</p>
+
+<p id="demo"> you are</p>
+
+<script>
+let country = prompt("Enter your country:");
+let age = Number(prompt("Enter your age:"));
+
+let text = "";
+
+if (country === "USA") {
+    if (age >= 16) {
+        text = "You can drive!";
+       
+    } else {
+        text = "You are too young to drive.";
+        
+    }
+} else {
+    text = "Driving rules depend on your country.";
+}
+document.getElementById("demo").innerHTML = text;
+console.log(text);
+</script>
+
+</body>
+</html>
