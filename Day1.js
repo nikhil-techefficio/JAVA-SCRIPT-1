@@ -210,3 +210,106 @@ anonymousFunction(); // Output: This is an anonymous function!
     // -- assined to a variable
     // -- used as a callback
    //  -- with return value
+
+
+   // ==============================
+// GENERATOR FUNCTIONS
+// ==============================
+
+// 1) Generator Function - with parameters
+function* countUp(start, end) {
+  for (let i = start; i <= end; i++) {
+    yield i;
+  }
+}
+
+const numbers = countUp(1, 3);
+
+console.log(numbers.next().value); // 1
+console.log(numbers.next().value); // 2
+console.log(numbers.next().value); // 3
+
+
+// 2) Generator Function - assigned to a variable
+const colorsGenerator = function* () {
+  yield "Red";
+  yield "Green";
+  yield "Blue";
+};
+
+const colors = colorsGenerator();
+
+console.log(colors.next().value); // Red
+console.log(colors.next().value); // Green
+
+
+// 3) Generator Function - used as a callback
+function processGenerator(generatorFn) {
+  const gen = generatorFn();
+
+  console.log(gen.next().value);
+  console.log(gen.next().value);
+}
+
+processGenerator(function* () {
+  yield "Step 1";
+  yield "Step 2";
+});
+
+
+// 4) Generator Function - with return value
+function* calculator(a, b) {
+  yield a + b;
+  return a * b;
+}
+
+const calc = calculator(2, 3);
+
+console.log(calc.next()); 
+// { value: 5, done: false }
+
+console.log(calc.next()); 
+// { value: 6, done: true }
+
+
+
+// ==============================
+// ARROW FUNCTIONS
+// ==============================
+
+// 1) Arrow Function - with parameters
+const add = (a, b) => {
+  return a + b;
+};
+
+console.log(add(5, 3)); // 8
+
+
+// 2) Arrow Function - assigned to a variable
+const greet = () => {
+  console.log("Hello!");
+};
+
+greet();
+
+
+// 3) Arrow Function - used as a callback
+const nums = [1, 2, 3, 4];
+
+const doubled = nums.map((num) => num * 2);
+
+console.log(doubled); // [2, 4, 6, 8]
+
+
+// 4) Arrow Function - with return value
+const square = (n) => {
+  return n * n;
+};
+
+console.log(square(4)); // 16
+
+
+// Short return syntax
+const multiply = (a, b) => a * b;
+
+console.log(multiply(2, 5)); // 10
