@@ -1,0 +1,220 @@
+// Dynamic input in TS
+// Concepts: variable declaration, conditional statements, and user input handling.
+
+const country: string | null = prompt("Enter your country:");
+const age: number = Number(prompt("Enter your age:"));
+export {};  //Prevent specke
+let text: string = "";
+
+if (country === "USA") {
+    if (age >= 16) {
+        text = "You can drive!";
+    } else {
+        text = "You are too young to drive.";
+    }
+} else {
+    text = "Driving rules depend on your country.";
+}
+
+console.log(text);
+
+// Now types of functions in TS
+
+// 1. Function Declaration
+function greet(): void {
+    console.log("Hello, World!");
+}
+greet(); // Output: Hello, World!
+
+// 2. Function Expression
+const greetExpression = function (): void {
+    console.log("Hello from a function expression!");
+};
+
+greetExpression(); // Output: Hello from a function expression!
+
+// 3. Arrow Function
+const greetArrow = (): void => {
+    console.log("Hello from an arrow function!");
+};
+
+greetArrow(); // Output: Hello from an arrow function!
+
+// 4. Immediately Invoked Function Expression (IIFE)
+(function (): void {
+    console.log("Hello from an IIFE!");
+})(); // Output: Hello from an IIFE!
+
+// 5. Function With Parameters
+function greetWithName(name: string): void {
+    console.log("Hello, " + name + "!");
+}
+
+greetWithName("Alice"); // Output: Hello, Alice!
+
+// 6. Function With Return Value
+function getGreeting(name: string): string {
+    return "Hello, " + name + "!";
+}
+
+console.log(getGreeting("Bob")); // Output: Hello, Bob!
+
+// 7. Recursive Function
+function factorial(n: number): number {
+    if (n === 0) {
+        return 1;
+    } else {
+        return n * factorial(n - 1);
+    }
+}
+
+console.log(factorial(5)); // Output: 120
+
+// 8. Higher-Order Function
+function higherOrderFunction(callback: () => void): void {
+    console.log("This is a higher-order function.");
+    callback();
+}
+
+// Example of a callback function
+function callbackFunction(): void {
+    console.log("This is a callback function.");
+}
+
+higherOrderFunction(callbackFunction);
+
+// in case we call higherOrderFunction(callbackFunction);
+//
+// higherOrderFunction(callbackFunction);
+//                 │
+//                 ▼
+//         callback = callbackFunction
+//                 │
+//                 ▼
+//            callback()
+//                 │
+//                 ▼
+//          callbackFunction()
+
+// Output:
+// This is a higher-order function.
+// This is a callback function.
+
+// 9. Generator Function
+function* generatorFunction(): Generator<string> {
+    yield "Hello";
+    yield "World";
+}
+
+// Using the generator
+const generator = generatorFunction();
+
+console.log(generator.next().value); // Output: Hello
+console.log(generator.next().value); // Output: World
+console.log(generator.next().value); // Output: undefined
+
+// 10. Async Function
+async function asyncFunction(): Promise<string> {
+    return "Hello from an async function!";
+}
+
+asyncFunction().then((result: string) => console.log(result));
+
+// Output: Hello from an async function!
+
+// 11. Constructor Function
+function Person(this: any, name: string, age: number): void {
+    this.name = name;
+    this.age = age;
+}
+
+const person1 = new (Person as any)("Alice", 30);
+
+console.log(person1.name); // Output: Alice
+console.log(person1.age);  // Output: 30
+
+// 12. Method Function
+const person2 = {
+    name: "Bob",
+    age: 25,
+
+    greet(): void {
+        console.log("Hello, my name is " + this.name);
+    }
+};
+
+// Calling the method
+person2.greet(); // Output: Hello, my name is Bob
+
+// 13. Callback Function
+function fetchData(callback: (data: string) => void): void {
+    setTimeout(() => {
+        const data: string = "Data fetched!";
+        callback(data);
+    }, 2000);
+}
+
+function handleData(data: string): void {
+    console.log(data);
+}
+
+fetchData(handleData);
+
+// Output (after 2 seconds): Data fetched!
+
+// 14. Anonymous Function
+setTimeout(function (): void {
+    console.log("This is an anonymous function!");
+}, 3000);
+
+// Output (after 3 seconds): This is an anonymous function!
+
+// 15. Named Function Expression
+const namedFunctionExpression = function namedFunc(): void {
+    console.log("This is a named function expression!");
+};
+
+namedFunctionExpression();
+
+// Output: This is a named function expression!
+
+// 16. Generator Function with Parameters
+function* generatorWithParams(start: number): Generator<number> {
+    yield start;
+    yield start + 1;
+    yield start + 2;
+}
+
+// Using the generator with parameters
+const generatorParams = generatorWithParams(5);
+
+console.log(generatorParams.next().value); // Output: 5
+console.log(generatorParams.next().value); // Output: 6
+console.log(generatorParams.next().value); // Output: 7
+
+// 17. Async Function with Await
+async function asyncFunctionWithAwait(): Promise<void> {
+    const promise: Promise<string> = new Promise((resolve) => {
+        setTimeout(() => {
+            resolve("Hello from an async function with await!");
+        }, 2000);
+    });
+
+    const result: string = await promise;
+    console.log(result);
+}
+
+// Calling the async function with await
+asyncFunctionWithAwait();
+
+// Output (after 2 seconds):
+// Hello from an async function with await!
+
+// 18. Anonymous Function
+const anonymousFunction = function (): void {
+    console.log("This is an anonymous function!");
+};
+
+anonymousFunction();
+
+// Output: This is an anonymous function!
