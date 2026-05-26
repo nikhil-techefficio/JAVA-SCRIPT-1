@@ -202,3 +202,11 @@ const anonymousFunction = function() {
 anonymousFunction(); // Output: This is an anonymous function!      
 
 
+
+
+//Key function types to remember:
+   //Generator Function                 // Arrow Function
+    // -- With parameters               // Similar stack
+    // -- assined to a variable
+    // -- used as a callback
+   //  -- with return value
