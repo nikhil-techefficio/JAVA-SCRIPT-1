@@ -11,3 +11,19 @@ Not in sequence of exicution of code
 EX: setTimeout(() => {
     console.log("hello world")
 }, 2000) --> this one exicutes after 2 seconds
+
+
+
+# Call back 
+  is a argument for other function 
+   
+    function sum(a,b){
+        console.log(a+b)
+    }
+
+    function calculate(a,d,sumCallback){
+        sumCallback(a,b)
+    }
+
+    Calculate(1,2,sum)  --> call backs are passed as is 
+     Calculate(1,2,sum())  --> is wrong as we are stating the function to exicute there 
