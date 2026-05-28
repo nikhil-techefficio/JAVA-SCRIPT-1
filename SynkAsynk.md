@@ -1,11 +1,11 @@
-# Synk 
+# Synk (Synchronous)
 Perticular lie by line exicution of code 
 EX: let a =99 --> this one exicutes first 
      var = 44  --> this secnd 
 
 in the same sequence 
 
-# Asynk 
+# Asynk (Asynchronous)
 
 Not in sequence of exicution of code
 EX: setTimeout(() => {
