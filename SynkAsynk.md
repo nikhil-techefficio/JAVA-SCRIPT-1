@@ -30,4 +30,9 @@ EX: setTimeout(() => {
     Arrow function
      calculate(1,2,(a,b) => {console.log(a+b);});
 
-     
+       Call back Hell 
+
+       TO solve Promisses 
+
+  # Promises 
+         
