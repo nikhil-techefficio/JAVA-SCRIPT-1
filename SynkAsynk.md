@@ -21,9 +21,13 @@ EX: setTimeout(() => {
         console.log(a+b)
     }
 
-    function calculate(a,d,sumCallback){
+    function calculate(a,b,sumCallback){
         sumCallback(a,b)
     }
 
     Calculate(1,2,sum)  --> call backs are passed as is 
      Calculate(1,2,sum())  --> is wrong as we are stating the function to exicute there 
+    Arrow function
+     calculate(1,2,(a,b) => {console.log(a+b);});
+
+     
