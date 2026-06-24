@@ -11,25 +11,67 @@
 let country = prompt("Enter your country:");
 let age = Number(prompt("Enter your age:"));
 
-let text = "";
-
-if (country === "USA") {
-    if (age >= 16 && age <=64) {
-        text = "You can drive!";
+     //NORMAL FUNCTION 
+// let text = "";
+// //NEsted if
+// if (country === "USA") {
+//     if (age >= 16 && age <=64) {
+//         text = "You can drive!";
        
-    } 
-    if(age>=65){
-        text="you are S.Cityzen";
-    }
-    if(age<16) {
-        text = "You are too young to drive.";
+//     } 
+//     if(age>=65){
+//         text="you are S.Cityzen";
+//     }
+//     if(age<16) {
+//         text = "You are too young to drive.";
         
-    }
-} else {
-    text = "Driving rules depend on your country.";
-}
+//     }
+// } else {
+//     text = "Driving rules depend on your country.";
+// }
+
+// document.getElementById("demo").innerHTML = text;
+// console.log(text);
+
+    //ARROW FUNCTION
+
+// const checkDrivingStatus = (country, age) => {
+//     if (country === "USA") {
+//         if (age >= 16 && age <= 64) {
+//             return "You can drive!";
+//         } else if (age >= 65) {
+//             return "You are a senior citizen.";
+//         } else {
+//             return "You are too young to drive.";
+//         }
+//     } else {
+//         return "Driving rules depend on your country.";
+//     }
+// };
+
+// const text = checkDrivingStatus(country, age);
+
+// document.getElementById("demo").innerHTML = text;
+// console.log(text);
+// // Example
+// console.log(checkDrivingStatus("USA", 20));
+
+     //TERNARY OPERATIONS
+
+ const checkDrivingStatus = (country, age) =>
+    country !== "USA"
+        ? "Driving rules depend on your country."
+        : age >= 65
+        ? "You are a senior citizen."
+        : age >= 16
+        ? "You can drive!"
+        : "You are too young to drive.";    
+
+const text = checkDrivingStatus(country, age);
+
 document.getElementById("demo").innerHTML = text;
 console.log(text);
+
 </script>
 
 </body>
